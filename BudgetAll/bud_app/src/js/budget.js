@@ -13,7 +13,7 @@ let startBtn = document.getElementById('start'),
     expensesBtn = document.getElementsByTagName('button')[0],
     optionalExpensesBtn = document.getElementsByTagName('button')[1],
     countBtn = document.getElementsByTagName('button')[2],
-    optionalExpensesItem = document.querySelector('.optionalexpenses-item'),
+    optionalExpensesItem = document.getElementsByClassName('optionalexpenses-item'),
     incomeItem = document.querySelector('.choose-income'),
     checkSavings = document.querySelector('#savings'),
     sumValue = document.querySelector('.choose-sum'),
@@ -76,8 +76,8 @@ optionalExpensesBtn.addEventListener('click', function() {
 
 countBtn.addEventListener('click', function() {
     if (appData.budget != undefined) {
-    let a = +expensesValue.value;
-    appData.moneyPerDay = ((appData.budget - a / 30) .toFixed();
+    let a = +expensesValue.value; // Формула!!!
+    appData.moneyPerDay = ((appData.budget - a) / 30).toFixed();
     daybudgetValue.textContent = appData.moneyPerDay;
 
     if(appData.moneyPerDay < 100) {
@@ -138,7 +138,7 @@ let appData = {
     budget: money,
     timeData: time,
     expenses: {},
-    optionalExpenses: {},
+    optionalExpenses: [],
     income: [],
     savings: false,
 };
